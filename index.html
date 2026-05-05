@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HERO BANNER -->
+    <header class="hero">
+        <img src="images/hero.jpg" alt="Hero Banner">
+        <div class="hero-overlay">
+            <h1>Your Website Title</h1>
+            <p>A short tagline or description goes here</p>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+
+        <!-- INTRO TEXT - full width pure text section -->
+        <section class="intro-text">
+            <h2>Welcome</h2>
+            <p>
+                Add your introductory text here. This is a full-width section where you can
+                write as many paragraphs as you need before the rest of the content.
+            </p>
+            <p>
+                You can add more paragraphs, links, or any other text content in this space.
+            </p>
+        </section>
+
+        <!-- TWO-COLUMN: text left, image right -->
+        <section class="two-col">
+            <div class="two-col-text">
+                <h2>About Us</h2>
+                <p>
+                    Write your main content here. You can add as many paragraphs as you need.
+                    Simply edit this file to update the text on your website.
+                </p>
+            </div>
+            <div class="two-col-image">
+                <img src="images/photo1.jpg" alt="About us image">
+            </div>
+        </section>
+
+        <!-- TWO-COLUMN: image left, text right (reversed) -->
+        <section class="two-col reverse">
+            <div class="two-col-text">
+                <h2>Our Services</h2>
+                <p>
+                    Describe your services or another topic here. The alternating
+                    layout keeps the page visually interesting.
+                </p>
+            </div>
+            <div class="two-col-image">
+                <img src="images/photo2.jpg" alt="Services image">
+            </div>
+        </section>
+               <!-- TWO-COLUMN: text left, image right -->
+               <section class="two-col">
+                <div class="two-col-text">
+                    <h2>More Information</h2>
+                    <p>
+                        Add any additional content here. You can duplicate sections above
+                        to add more text and images as needed.
+                    </p>
+                </div>
+                <div class="two-col-image">
+                    <img src="images/photo3.jpg" alt="More info image">
+                </div>
+            </section>
+
+        <!-- PHOTO CAROUSEL -->
+        <section class="carousel-section">
+            <h2>Gallery</h2>
+            <div class="carousel">
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                <div class="carousel-track">
+                    <div class="carousel-slide active">
+                        <img src="images/photo4.jpg" alt="Photo 4">
+                        <p>Caption for photo 4</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/photo5.jpg" alt="Photo 5">
+                        <p>Caption for photo 5</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/photo6.jpg" alt="Photo 6">
+                        <p>Caption for photo 6</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/photo7.jpg" alt="Photo 7">
+                        <p>Caption for photo 7</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/photo8.jpg" alt="Photo 8">
+                        <p>Caption for photo 8</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/photo9.jpg" alt="Photo 9">
+                        <p>Caption for photo 9</p>
+                    </div>
+                </div>
+                <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+                <span class="dot" onclick="goToSlide(4)"></span>
+                <span class="dot" onclick="goToSlide(5)"></span>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            <p>Phone: +1 234 567 890</p>
+            <p>Address: 123 Street Name, City, Country</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a> |
+                <a href="https://twitter.com/yourhandle">Twitter</a>
+            </div>
+            <p class="copyright">&copy; 2026 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach(function(s) { s.classList.remove('active'); });
+            dots.forEach(function(d) { d.classList.remove('active'); });
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function moveSlide(dir) { showSlide(currentSlide + dir); }
+        function goToSlide(i) { showSlide(i); }
+
+        // Auto-advance every 5 seconds
+        setInterval(function() { moveSlide(1); }, 5000);
+    </script>
+
+</body>
+</html>
